@@ -1,0 +1,67 @@
+СРАВНИВАЕМ 4 ЧИСЛА
+public class Solution
+{
+    public static void main(String[] args) throws Exception
+    {
+        //Напишите тут ваш код
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String sn1 = reader.readLine();
+        String sn2 = reader.readLine();
+        String sn3 = reader.readLine();
+        String sn4 = reader.readLine();
+        int n1 = Integer.parseInt(sn1);
+        int n2 = Integer.parseInt(sn2);
+        int n3 = Integer.parseInt(sn3);
+        int n4 = Integer.parseInt(sn4);
+
+        if ((n1 > n2) && (n1 > n3)  && (n1>n4))
+            System.out.println(n1);
+        else if ((n2>n3) && (n2>n4))
+        {
+            System.out.println(n2);
+        }
+        else if (n3>n4)
+        {
+            System.out.println(n3);
+        }
+        else
+        {
+            System.out.println(n4);
+
+    }
+}
+
+
+СЧИТЫВАЕМ СУММУ ВВЕДЕННУЮ С КОНСОЛИ
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Solution
+{
+    public static void main(String[] args) throws Exception
+    {
+        //Напишите тут ваш код
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int sum = 0;
+        while (true)
+        {
+            String s = reader.readLine();
+
+                if ("-1".equals(s))
+                {
+                    System.out.println(sum-1);
+                    break;
+                } else
+                {
+                    sum += Integer.parseInt(s);
+                }
+
+
+        }
+    }
+}
+
+
+
+Ввод числа в консоль int n = Integer.parseInt(reader.readLine());
