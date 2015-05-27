@@ -1,12 +1,10 @@
 package com.javarush.test.level07.lesson09.task01;
 
 
-import sun.nio.cs.ext.IBM037;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /* Три массива
@@ -58,5 +56,4 @@ public class Solution
         for (int i = 0; i < list.size(); i++){
             System.out.println(list.get(i));}
     }
-
 }
