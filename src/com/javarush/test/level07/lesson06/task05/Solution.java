@@ -18,19 +18,18 @@ public class Solution
         //Напишите тут ваш код
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         ArrayList<String> list = new ArrayList<String>();
-
-        String k;
         for (int i = 0; i < 5; i++)
         {
             String s = reader.readLine();
             list.add(s);
         }
-        list.add(0, list.get(4));
-        list.remove(5);
         for (int i = 0; i < 13; i++)
         {
-            System.out.println(list.get(0));
+            list.add(0, list.get(4));
+            list.remove(5);
         }
-
+        for (int i=0; i<list.size(); i++){
+            System.out.println(list.get(i));
+        }
     }
 }
