@@ -25,7 +25,7 @@ public class Solution
         ArrayList<Integer> listDel2 = new ArrayList<Integer>();
         ArrayList<Integer> listDel3 = new ArrayList<Integer>();
         ArrayList<Integer> listOst = new ArrayList<Integer>();
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 20; i++)
         {
             int s = Integer.parseInt(reader.readLine());
             list.add(s);
