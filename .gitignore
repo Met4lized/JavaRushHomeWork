@@ -1,3 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
+<<<<<<< Updated upstream
 src/JavaRushPlugin.properties
 .gitignore
+=======
+src/JavaRushPlugin.properties
+>>>>>>> Stashed changes
