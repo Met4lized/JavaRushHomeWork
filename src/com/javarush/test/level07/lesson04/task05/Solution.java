@@ -24,12 +24,11 @@ public class Solution
         for (int i=0; i<array.length; i++) {
             array[i]=Integer.parseInt(reader.readLine());
         }
-        for (int i=0; i<array1.length; i++)
-        {
+        for (int i=0; i<array1.length; i++) {
             array1[i] = array[i];
             array2[i] = array[array.length/2+i];
             System.out.println(array2[i]);
         }
-        }
+    }
 }
 
