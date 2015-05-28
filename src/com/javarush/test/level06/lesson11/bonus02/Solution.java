@@ -27,10 +27,8 @@ Cat name is сын Мурчик, mother is мама Василиса, father is 
 Cat name is дочь Пушинка, mother is мама Василиса, father is папа Котофей
 */
 
-public class Solution
-{
-    public static void main(String[] args) throws IOException
-    {
+public class Solution {
+    public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         String motherName = reader.readLine();
@@ -43,30 +41,35 @@ public class Solution
         System.out.println(catDaughter);
     }
 
-    public static class Cat
-    {
+    public static class Cat {
         private String name;
-        private Cat parent;
+        private Cat parentMama;
+        private Cat parentPapa;
 
-        Cat(String name)
-        {
+
+        Cat(String name) {
             this.name = name;
         }
 
-        Cat(String name, Cat parent)
-        {
+        Cat(String name, Cat parent) {
             this.name = name;
-            this.parent = parent;
+            this.parentMama = parent;
+            this.parentPapa = parent;
+
         }
 
         @Override
-        public String toString()
-        {
-            if (parent == null)
+        public String toString() {
+            if (parentMama == null) {
                 return "Cat name is " + name + ", no mother ";
-            else
-                return "Cat name is " + name + ", mother is " + parent.name;
-        }
-    }
+            } else if (parentPapa == null) {
+                return "Cat name is " + name + ", no father ";
+            } else return null;
 
+            //  return "Cat name is " + name + ", mother is " + parentMama.name;
+
+
+        }
+
+    }
 }

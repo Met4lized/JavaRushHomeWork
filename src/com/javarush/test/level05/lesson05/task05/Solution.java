@@ -10,10 +10,15 @@ package com.javarush.test.level05.lesson05.task05;
 public class Solution {
     public static void main(String[] args) {
         //add your code here
+        Cat bursik = new Cat("Бурсик", 9, 8, 4);
+        Cat pushok = new Cat("Пушок", 4, 5, 3);
+        Cat gigantus = new Cat("ГИГАНТУС!!!", 10, 25, 30);
+        System.out.println(bursik.fight(pushok));
+        System.out.println(bursik.fight(gigantus));
+        System.out.println(gigantus.fight(pushok));
     }
 
     public static class Cat {
-
         public static int count = 0;
         public static int fightCount = 0;
 
@@ -24,7 +29,6 @@ public class Solution {
 
         public Cat(String name, int age, int weight, int strength) {
             count++;
-
             this.name = name;
             this.age = age;
             this.weight = weight;
@@ -33,7 +37,6 @@ public class Solution {
 
         public boolean fight(Cat anotherCat) {
             fightCount++;
-
             int agePlus = this.age > anotherCat.age ? 1 : 0;
             int weightPlus = this.weight > anotherCat.weight ? 1 : 0;
             int strengthPlus = this.strength > anotherCat.strength ? 1 : 0;
