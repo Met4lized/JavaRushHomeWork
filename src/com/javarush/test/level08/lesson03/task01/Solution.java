@@ -8,6 +8,7 @@ package com.javarush.test.level08.lesson03.task01;
 */
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 public class Solution
@@ -28,8 +29,10 @@ public class Solution
         set.add("ирис");
         set.add("картофель");
 
-        for (String x : set){
-            System.out.println(x);
+        Iterator<String> iterator= set.iterator();
+        while (iterator.hasNext()){
+            String s = iterator.next();
+            System.out.println(s);
         }
 
     }
