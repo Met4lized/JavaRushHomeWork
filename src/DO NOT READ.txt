@@ -62,7 +62,7 @@ public class Solution
     }
 }
 
-
+charsSogl.add(chars[i]);
 
 Ввод числа в консоль int n = Integer.parseInt(reader.readLine());
 
