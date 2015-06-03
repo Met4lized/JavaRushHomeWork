@@ -15,31 +15,35 @@ import java.util.ArrayList;
 я 9
 */
 
-public class Solution
-{
-    public static void main(String[] args)  throws Exception
-    {
+public class Solution {
+    public static void main(String[] args) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         //алфавит
         ArrayList<Character> alphabet = new ArrayList<Character>();
-        for(int i=0;i<32;i++)
-        {
-            alphabet.add( (char) ('а'+i));
+        for (int i = 0; i < 32; i++) {
+            alphabet.add((char) ('а' + i));
         }
-        alphabet.add(6,'ё');
+        alphabet.add(6, 'ё');
 
         //ввод строк
         ArrayList<String> list = new ArrayList<String>();
-        for(int i=0;i<10;i++)
-        {
+        for (int i = 0; i < 2; i++) {
             String s = reader.readLine();
-            list.add( s.toLowerCase());
+            list.add(s.toLowerCase());
         }
 
 
-        //Напишите тут ваш код
-
+        for (char alPair : alphabet) {
+            int count = 0;
+            for (String stList : list) {
+                for (char forStList : stList.toCharArray()) {
+                    if (alPair == forStList) {
+                        count++;
+                    }
+                }
+            }
+            System.out.println(alPair + " " + count);
+        }
     }
-
 }

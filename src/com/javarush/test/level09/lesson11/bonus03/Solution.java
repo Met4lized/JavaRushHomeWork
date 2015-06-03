@@ -54,6 +54,8 @@ public class Solution
         //Напишите тут ваш код
         ArrayList <String> arrayString = new ArrayList<>();
         ArrayList <Integer> arrayInteger = new ArrayList<>();
+        ArrayList <String> sortArray = new ArrayList<>();
+
 
         for (String i : array){
            if (isNumber(i)==false) {
@@ -64,7 +66,9 @@ public class Solution
         for (String i : arrayString){
             isGreaterThen(i, i+1);
         }
-        Collections.sort(arrayInteger);
+        Collections.sort(arrayInteger, Collections.reverseOrder());
+        Collections.sort(arrayString);
+       // System.out.println(sortArray);
 
 
     }

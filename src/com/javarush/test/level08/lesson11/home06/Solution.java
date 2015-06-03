@@ -9,69 +9,62 @@ package com.javarush.test.level08.lesson11.home06;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution
-{
-    public static void main(String[] args)
-    {
+public class Solution {
+    public static void main(String[] args) {
         //Написать тут ваш код
 
-        Human ded1= new Human("Дед Петя", true, 60, null);
-        Human ded2= new Human("Дед Инокентий", true, 59, null);
-        Human baba1= new Human("Баба Зина", false, 54, null);
-        Human baba2= new Human("Баба Вера", false, 55, null);
-        Human mama= new Human("Елена", false, 30, null);
-        Human papa= new Human("Иван", true, 34, null);
-        Human det1= new Human("Евгений", true, 9, null);
-        Human det2= new Human("Катя", false, 7, null);
-        Human det3= new Human("Вася", true, 5, null);
-        ArrayList<Human> child = new ArrayList<>();
-        child.add(mama);
-        child.add(papa);
-        child.add(det1);
-        child.add(det2);
-        child.add(det3);
-        System.out.println();
+        ArrayList<Human> family = new ArrayList<Human>();
+        ArrayList<Human> kids = new ArrayList<Human>();
+        ArrayList<Human> parents = new ArrayList<Human>();
 
+        kids.add(new Human("сын Петя", true, 3, null));
+        kids.add(new Human("дочь Катя", true, 4, null));
+        kids.add(new Human("сын Вася", true, 5, null));
+        parents.add(new Human("папа Андрей", true, 25, kids));
+        parents.add(new Human("мама Катя", false, 25, kids));
+        family.add(new Human("дед Прокоп", true, 50, parents));
+        family.add(new Human("дед Евкакий", true, 50, parents));
+        family.add(new Human("баба Зина", false, 50, parents));
+        family.add(new Human("баба Варя", false, 50, parents));
+
+        family.addAll(parents);
+        family.addAll(kids);
+
+        for (Human item : family)
+            System.out.println(item);
 
     }
 
-    public static class Human
-    {
+    public static class Human {
         //Написать тут ваш код
         String name;
         boolean sex;
         int age;
         List<Human> children;
 
-
-
-        public Human(String name, boolean sex, int age, ArrayList<Human> children){
-           // List<Human> children= new ArrayList<>();
-            this.name=name;
-            this.sex=sex;
-            this.age=age;
-            this.children= children;
+        public Human(String name, boolean sex, int age, ArrayList<Human> children) {
+            this.name = name;
+            this.sex = sex;
+            this.age = age;
+            this.children = children;
+            if (children != null) this.children = children;
+            else this.children = new ArrayList<>();
 
         }
 
-
-
-        public String toString()
-        {
+        public String toString() {
             String text = "";
             text += "Имя: " + this.name;
             text += ", пол: " + (this.sex ? "мужской" : "женский");
             text += ", возраст: " + this.age;
 
             int childCount = this.children.size();
-            if (childCount > 0)
-            {
-                text += ", дети: "+this.children.get(0).name;
+            if (childCount > 0) {
+                text += ", дети: " + this.children.get(0).name;
 
-                for (int i = 1; i < childCount; i++)
-                {
+                for (int i = 1; i < childCount; i++) {
                     Human child = this.children.get(i);
-                    text += ", "+child.name;
+                    text += ", " + child.name;
                 }
             }
             return text;
