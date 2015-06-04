@@ -31,7 +31,7 @@ public class Solution {
             }
         }
 
-          /*      ArrayList<Integer> list = new ArrayList<>(); // код курильщика
+          /*      ArrayList<Integer> list = new ArrayList<>(); код курильщика
         for (int i : array) {
             list.add(i);}
         Integer n = 0;
