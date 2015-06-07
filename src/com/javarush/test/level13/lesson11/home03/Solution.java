@@ -26,6 +26,7 @@ public class Solution
 
         System.out.println();
         inStream.close();
+        reader.close();
 
     }
 }
