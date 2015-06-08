@@ -27,14 +27,14 @@ public class Solution {
                     break;
                 } else {
                     if (data.contains(".")) {
-                        double n = Double.parseDouble(data);
-                        print(n);
-                    } else if (Short.parseShort(data) > 0 && Short.parseShort(data) < 128) {
+                        double d = Double.parseDouble(data);
+                        print(d);
+                    } else if (Integer.parseInt(data) >= 128) {  //проверка на Integer стояла ниже проверки на Short, поэтому я сдал эту задачу с 12ой попытки.
+                        int in = Integer.parseInt(data);          //если кто-нибудь знает разницу, позвоните мне :)
+                        print(in);
+                    } else if (Short.parseShort(data) > 0 & Short.parseShort(data) < 128) {
                         short sh = Short.parseShort(data);
                         print(sh);
-                    } else if (Integer.parseInt(data) >= 128) {
-                        int n = Integer.parseInt(data);
-                        print(n);
                     } else print(data);
                 }
             } catch (NumberFormatException e) {
