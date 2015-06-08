@@ -10,8 +10,6 @@ package com.javarush.test.level15.lesson02.task04;
 5.2. markTwainOutput для книг Марка Твена.
 */
 
-import com.javarush.test.level06.lesson08.task05.StringHelper;
-
 import java.util.LinkedList;
 import java.util.List;
 
@@ -21,35 +19,6 @@ public class Solution {
         books.add(new MarkTwainBook("Tom Sawyer"));
         books.add(new AgathaChristieBook("Hercule Poirot"));
         System.out.println(books);
-    }
-    public static class MarkTwainBook extends Book{
-        public MarkTwainBook(String book) {
-            super(book);
-        }
-
-        @Override
-        public String getName() {
-            return "Mark Twain";
-        }
-
-        @Override
-        public Book getBook() {
-            return null;
-        }
-    } public static class AgathaChristieBook extends Book{
-        public AgathaChristieBook(String book) {
-            super(book);
-        }
-
-        @Override
-        public String getName() {
-            return "Agatha Christie";
-        }
-
-        @Override
-        public Book getBook() {
-            return null;
-        }
     }
 
     public abstract static class Book {
@@ -69,6 +38,14 @@ public class Solution {
 
             String output = "output";
             //Add your code here
+            if (this instanceof AgathaChristieBook)
+            {
+                output = agathaChristieOutput;
+            }
+            if (this instanceof MarkTwainBook)
+            {
+                output = markTwainOutput;
+            }
 
 
             return output;
@@ -76,6 +53,43 @@ public class Solution {
 
         public String toString() {
             return getOutputByBookType();
+        }
+    }
+    public static class MarkTwainBook extends Book
+    {
+        private String bookName;
+
+        public MarkTwainBook(String bookName)
+        {
+            super("Mark Twain");
+            this.bookName = bookName;
+        }
+        public Book getBook()
+        {
+            return new MarkTwainBook(this.bookName);
+        }
+        public String getName()
+        {
+            return this.bookName;
+        }
+    }
+
+    public static class AgathaChristieBook extends Book
+    {
+        private String bookName;
+
+        public AgathaChristieBook(String bookName)
+        {
+            super("Agatha Christie");
+            this.bookName = bookName;
+        }
+        public Book getBook()
+        {
+            return new AgathaChristieBook(this.bookName);
+        }
+        public String getName()
+        {
+            return this.bookName;
         }
     }
 }
