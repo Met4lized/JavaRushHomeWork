@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-//Ниже отвратительный код, который тем не менее работает. Не делайте так, и никому не рассказывайте что вы видели.
+//Ниже отвратительный код, который тем не менее работает. Не делайте так, и никому не рассказывайте, что вы видели.
 
 public class Solution {
     public static void main(String[] args) throws IOException {
@@ -20,7 +20,7 @@ public class Solution {
         ArrayList<Character> dataFromFile = new ArrayList<>();
         int count = 0;
         for (int i = 0; i < 26; i++) {
-            alphabet.add((char) ('a' + i));
+            alphabet.add((char) ('a' + i)); //заполняю лист буквами английского алфавита
         }
         InputStream inputStream = new FileInputStream(args[0]);
         while (inputStream.available() > 0) {
