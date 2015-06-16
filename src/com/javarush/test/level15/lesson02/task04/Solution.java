@@ -38,14 +38,9 @@ public class Solution {
 
             String output = "output";
             //Add your code here
-            if (this instanceof AgathaChristieBook)
-            {
-                output = agathaChristieOutput;
-            }
-            if (this instanceof MarkTwainBook)
-            {
+            if (this instanceof MarkTwainBook) {
                 output = markTwainOutput;
-            }
+            } else output = agathaChristieOutput;
 
 
             return output;
@@ -55,41 +50,43 @@ public class Solution {
             return getOutputByBookType();
         }
     }
-    public static class MarkTwainBook extends Book
-    {
-        private String bookName;
 
-        public MarkTwainBook(String bookName)
-        {
+    public static class MarkTwainBook extends Book {
+        public String bookName = null;
+
+        public MarkTwainBook(String bookName) {
             super("Mark Twain");
             this.bookName = bookName;
         }
-        public Book getBook()
-        {
-            return new MarkTwainBook(this.bookName);
+
+        @Override
+        public MarkTwainBook getBook() {
+            return this;
         }
-        public String getName()
-        {
+
+        @Override
+        public String getName() {
             return this.bookName;
         }
     }
 
-    public static class AgathaChristieBook extends Book
-    {
-        private String bookName;
+    public static class AgathaChristieBook extends Book {
+        public String bookName;
 
-        public AgathaChristieBook(String bookName)
-        {
+        public AgathaChristieBook(String book) {
             super("Agatha Christie");
-            this.bookName = bookName;
+            this.bookName = book;
         }
-        public Book getBook()
-        {
-            return new AgathaChristieBook(this.bookName);
+
+        @Override
+        public AgathaChristieBook getBook() {
+            return this;
         }
-        public String getName()
-        {
+
+        @Override
+        public String getName() {
             return this.bookName;
         }
     }
+
 }
