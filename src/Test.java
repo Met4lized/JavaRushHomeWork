@@ -8,23 +8,12 @@ import java.util.TreeMap;
 
 public class Test {
 
+    public static final String TEXT = "Мне очень нравится Тайланд. Таиланд это то место куда бы я поехал. тайланд - мечты сбываются!";
 
-    public static void main(String[] args) throws Exception {
-        Map<Integer, String> map = new TreeMap<>();
+    public static void main(String[] args){
+
+        System.out.println(TEXT.replaceAll("[Тт]а[ий]ланд", "Украина"));
+
     }
 
-    public static Map<Integer, String> fillMap(Map<Integer, String> map) {
-        int id = 0;
-        try (Scanner scanner = new Scanner(System.in); BufferedReader reader = new BufferedReader(new FileReader(scanner.nextLine()))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                map.put(id++,line);
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return map;
-    }
 }
