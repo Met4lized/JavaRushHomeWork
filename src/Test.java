@@ -1,29 +1,30 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
 
 public class Test {
 
 
-    public static void main(String[] args) throws IOException {
-        StringBuilder s = new StringBuilder();
-        s.append("машма").append("\n");
-        s.append("dfg").append("\n");
-        s.append("erhg").append("\n");
-        s.append("erfvcd").append("\n");
-        String data = s.toString();
-        InputStream stream = new ByteArrayInputStream(data.getBytes());
-        System.setIn(stream);
-        readAndPrintLine();
+    public static void main(String[] args) throws Exception {
+        Map<Integer, String> map = new TreeMap<>();
     }
 
-    public static void readAndPrintLine() throws IOException {
-        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
-        BufferedReader reader = new BufferedReader(inputStreamReader);
-        while (true) {
-            String line = reader.readLine();
-            if (line == null) break;
-            System.out.println(line);
+    public static Map<Integer, String> fillMap(Map<Integer, String> map) {
+        int id = 0;
+        try (Scanner scanner = new Scanner(System.in); BufferedReader reader = new BufferedReader(new FileReader(scanner.nextLine()))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                map.put(id++,line);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        reader.close();
-        inputStreamReader.close();
+        return map;
     }
 }
