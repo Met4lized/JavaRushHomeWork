@@ -12,7 +12,34 @@ package com.javarush.test.level18.lesson10.home10;
 Темповые файлы создавать нельзя, т.к. на сервере заблокирована возможность создания каких любо файлов
 */
 
+import java.io.*;
+import java.util.Map;
+import java.util.TreeMap;
+
 public class Solution {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        Map<String, byte[]> map = new TreeMap<>();
+        String fileName;
+        StringBuilder s = new StringBuilder();
+        while (!(fileName = reader.readLine()).equals("end")) {
+            s.append(fileName);
+            s.delete(fileName.indexOf(".part"), s.length());
+            String parts = fileName.substring(fileName.lastIndexOf("part", fileName.length()));
+            InputStream is = new FileInputStream(fileName);
+            byte[] buffer = new byte[is.available()];
+            is.read(buffer);
+            map.put(parts, buffer);
+            is.close();
+        }
+        reader.close();
+        OutputStream os = new FileOutputStream(String.valueOf(s));
+        for (Map.Entry<String, byte[]> pair : map.entrySet()) {
+            byte[] data = pair.getValue();
+            os.write(data);
+        }
+        os.close();
     }
 }
+
+
