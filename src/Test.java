@@ -1,19 +1,22 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Map;
+import java.io.*;
 import java.util.Scanner;
-import java.util.TreeMap;
 
 public class Test {
-
-    public static final String TEXT = "Мне очень нравится Тайланд. Таиланд это то место куда бы я поехал. тайланд - мечты сбываются!";
-
-    public static void main(String[] args){
-
-        System.out.println(TEXT.replaceAll("[Тт]а[ий]ланд", "Украина"));
-
+    public static void main(String[] args) throws IOException {
+        Scanner scanner = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new FileReader(scanner.nextLine()));
+        Writer writer = new FileWriter(scanner.nextLine());
+        String text;
+        while ((text = br.readLine()) != null) {
+            String[] data = text.split(" ");
+            for (int i = 0; i < data.length; i++) {
+                try {
+                    writer.write(Integer.parseInt(data[i]) + " ");
+                } catch (Exception e) {
+                }
+            }
+            scanner.close();
+            writer.close();
+        }
     }
-
 }

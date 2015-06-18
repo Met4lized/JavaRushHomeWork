@@ -22,10 +22,61 @@ id productName price quantity
 19847983Куртка для сноубордистов, разм10173.991234
 */
 
+import java.io.*;
+import java.util.*;
 
 public class Solution {
-    public static void main(String[] args) throws Exception {
+    private static List<String> list = new ArrayList<>();
+    private static int id = 0;
 
+    public static void main(String[] args) throws Exception {
+        StringBuilder sb = new StringBuilder();
+        Formatter formatter = new Formatter();
+        String price = null;
+        String quantity = null;
+        if (args[0].equals("-c") & args.length > 3) {
+            String fileName = new Scanner(System.in).nextLine();
+            FileWriter writer = new FileWriter(fileName, true);
+            fillMap(list, fileName);
+            for (String arg : args) {
+                if (arg.equals("-c")) {
+                    continue;
+                } else if (arg.matches("[-+]?\\d+") & args[args.length - 1].equals(arg)) {
+                    quantity = arg;
+                    continue;
+                } else if (arg.matches("((-|\\+)?[0-9]+(\\.[0-9]+)?)+") & args[args.length - 2].equals(arg)) {
+                    price = arg;
+                    continue;
+                } else {
+                    sb.append(arg).append(" ");
+                }
+            }
+            String productName = sb.toString();
+            writer.write(formatter.format("\n%-8.8s%-30.30s%-8.8s%-4.4s", ++id, productName, price, quantity).toString());
+            writer.flush();
+            writer.close();
+            formatter.close();
+        }
+    }
+
+    public static List<String> fillMap(List<String> list, String fileName) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null | reader.ready()) {
+                try {
+                    if (id < Integer.parseInt(line.substring(0, 8).trim())) {
+                        id = Integer.parseInt(line.substring(0, 8).trim());
+                    }
+                } catch (Exception e) {
+                    continue;
+                }
+                list.add(line);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 }
-
