@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class DataObject extends NonSerializable implements Serializable {
 
     int i = 10;
-    String s = "aaa";
+     String s = "aaa";
     transient String[] def;
 
     private void writeObject(ObjectOutputStream out) throws IOException {

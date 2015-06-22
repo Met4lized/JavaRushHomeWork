@@ -15,7 +15,6 @@ public class Operations {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         DataObject dataObject = new DataObject();
         Gson gson = new Gson();
-
         String json = gson.toJson(dataObject);
         FileWriter fileWriter= new FileWriter("gsontest.txt");
         fileWriter.write(json);
@@ -30,6 +29,7 @@ public class Operations {
         String data = reader.readLine();
         DataObject object1 = gson.fromJson(data, DataObject.class);
         System.out.println(object1.getMydata());
+        System.out.println(object1.def);
 
     }
 }

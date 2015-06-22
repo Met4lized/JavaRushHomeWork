@@ -5,9 +5,10 @@ package com.javarush.test.Tests.GsonTest;
  */
 public class NonSerializable {
     String mydata="hahaha";
+    String data2 = "ohoho";
 
 
-    public String getMydata() {
+     public String getMydata() {
         return mydata;
     }
 
