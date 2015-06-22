@@ -3,44 +3,17 @@ package com.javarush.test.Tests;
 import java.io.*;
 
 public class Test {
-
-    public static class Cat {
-        String name;
-        int age;
-        int weight;
-
-
-        Cat(String name, int age, int weight){
-            this.name=name;
-            this.age=age;
-            this.weight=weight;
-        }
-
-        public void save(OutputStream outputStream) {
-            PrintWriter printWriter = new PrintWriter(outputStream);
-            printWriter.write(name);
-            printWriter.write(age);
-            printWriter.write(weight);
-        }
-
-        public void load(InputStream inputStream) throws IOException {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-            name = reader.readLine();
-            age = Integer.parseInt(reader.readLine());
-            weight = Integer.parseInt(reader.readLine());
-
-        }
-    }
-
-    public static void main(String[] args) throws IOException {
-        OutputStream outputStream = new FileOutputStream("1.txt");
-        InputStream inputStream = new FileInputStream("1.txt");
-        Cat cat = new Cat("Burs", 20, 12);
-        cat.save(outputStream);
-        outputStream.flush();
-        cat.load(inputStream);
-        outputStream.close();
-        inputStream.close();
+    public static void main(String[] args) {
+        String s = "куку";
+        String s2 = new String("ку"+"ку");
+        String s1 = "куку";
+        System.out.println(s.equals(s1));
+        System.out.println(s.equals(s2));
+        Integer i = new Integer(1);
+        Integer j = new Integer(1);
+        System.out.println(i.equals(j));
+        System.out.println(i == j);
 
     }
+
 }
