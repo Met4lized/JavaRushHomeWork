@@ -15,12 +15,21 @@ public class Solution {
         this.last = last;
     }
 
-    public boolean equals(Solution n) {
-        return n.first.equals(first) && n.last.equals(last);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Solution solution = (Solution) o;
+
+        if (!first.equals(solution.first)) return false;
+        return last.equals(solution.last);
+
     }
 
     public int hashCode() {
-        return 31 * first.hashCode() + last.hashCode();
+        int result = first.hashCode();
+        result = 31 * result + last.hashCode();
+        return result;
     }
 
     public static void main(String[] args) {

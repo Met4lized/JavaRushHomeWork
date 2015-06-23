@@ -10,18 +10,13 @@ package com.javarush.test.level22.lesson05.task01;
 */
 public class Solution {
 
-    public static void main(String[] args) throws TooShortStringException {
-        System.out.println(getPartOfString("JavaRush - лучший сервис обучения Java."));
-    }
-
     public static String getPartOfString(String string) throws TooShortStringException {
         try {
-            String[] lines = string.split(" ");
-            String tmp = "";
-            for (int i = 1; i < 5; i++) {
-                tmp += lines[i] + " ";
+            int index = 0;
+            for (int i = 0; i < 5; i++) {
+                index = string.indexOf(" ", index + 1);
             }
-            return tmp.trim();
+            return string.substring(string.indexOf(" ") + 1, index);
 
         } catch (Exception e) {
             throw new TooShortStringException();
