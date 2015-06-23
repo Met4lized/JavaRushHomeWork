@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: com.javarush.test.level21.lesson16.big01.Hippodrome
+Main-Class: com.javarush.test.level21.lesson16.big01.Hippodrome
+
