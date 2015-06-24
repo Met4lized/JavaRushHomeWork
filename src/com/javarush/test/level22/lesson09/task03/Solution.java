@@ -38,25 +38,32 @@ public class Solution {
 
     public static StringBuilder getLine(String... words) {
         ArrayList<String> list = new ArrayList<>();
+        ArrayList<String> listSopy = new ArrayList<>();
         Collections.addAll(list, words);
+        listSopy.addAll(list);
+
         StringBuilder s = new StringBuilder();
-
-
-        while (list.size() != 0) {
-            Collections.shuffle(list);
-            String sValue = s.toString();
-            if (sValue.equals("")) {
-                s.append(list.get(0));
-                list.remove(0);
-            }
-
-            for (int i = 0; i < list.size(); i++) {
-                String start = s.toString().toLowerCase();
-                String tmp = list.get(i).toLowerCase(); //убрать после дебага
-                if (start.endsWith(tmp.substring(0, 1))) {
-                    s.append(" ").append(list.get(i));
-                    list.remove(i);
+        while (s.toString().split(" ").length < listSopy.size()) {
+            while (list.size() != 0) {
+                Collections.shuffle(list);
+                String sValue = s.toString();
+                if (sValue.equals("")) {
+                    s.append(list.get(0));
+                    list.remove(0);
                 }
+
+                for (int i = 0; i < list.size(); i++) {
+                    String start = s.toString().toLowerCase();
+                    String tmp = list.get(i).toLowerCase();
+                    if (start.endsWith(tmp.substring(0, 1))) {
+                        s.append(" ").append(list.get(i));
+                        list.remove(i);
+                    }
+                }
+                if (s.toString().split(" ").length != listSopy.size()) {
+                    list.addAll(listSopy);
+                    s.delete(0, s.length());
+                } else break;
             }
         }
         return s;
